@@ -1,0 +1,5 @@
+/// supaya bisa mengakses cluque di console js kita harus menggunakan genesis block jika tidak dia tidak akan bisa
+
+/// admin_exportChain
+ini paramerenya adalah string dan dia akan membuatkan kita file dengan nama parameter yang kita beri
+# Contoh: admin.exportChain('test.txt') -> maka dia akan membuat file test.txt dengan data biner di dalamnya

@@ -1,0 +1,27 @@
+/// Transport
+1. Http :-> geth --http,
+default value dari http ini adalah 127.0.0.1:8545
+dan kita bisa menyesuaikan port dan address menggunakan
+#Contoh:  geth --http --http.addr localhost --http.port 3334 
+
+namespace di http tidak semuanya diaktifkan secara default, tapi harus di masukan ke dalam white list, jika tidak maka dia akan meresponse -32602
+white list default memungkinkan mengaktifkan eth,net dan web3
+
+mengaktifkan api melalui http TIDAK DI SARANKAN karna akses ke metode ini meningkatkan serangan
+#Contoh:  geth --http --http.api eth,net,web3
+
+supaya api kita aman kita bisa menambahkan cors origin domain
+#Contoh geth --http --http.api eth,web3,net --http.corsdomain http://localhost:3004
+selain itu kita bisa menamkabhan '*' supaya bisa di akses ke rpc mana saja
+
+2. Websocket
+## Websocket hampir sama seperti http hanya saja dia di dahului dengan --ws
+dan juga ketika ingin menjalan cors kita bisa menggunakan
+#Contoh: geth --ws --ws.port 3334 --ws.api eth,net,web3 --ws.origins http://example.com
+kita juga bisa 
+# MENGGUNAKAN : --ws.origins '*' supaya bisa di akses oleh semua RPC 
+
+3. IPC
+IPC hanya bisa di gunakan di lingkungan local saja, dimana node dan console berada di nose yang sama, file geth.ipc juga bisa di gunakan oleh proses lain di mesin yang sama untuk berinteraksi dengan geth
+dan file geth di windows berada pada \\.\pipe\geth.ipc
+lokasi socket dapat di kustomisasi menggunakan flag --ipcpath. IPC dapat di nonaktifkan dengan perintah --ipcdisable

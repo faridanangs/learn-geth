@@ -1,0 +1,2 @@
+//// untuk menjalankan mode developer kita bisa menggunakan perintah
+# --dev
